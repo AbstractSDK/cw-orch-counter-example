@@ -11,6 +11,7 @@ pub struct InstantiateMsg {
 }
 
 #[cw_serde]
+#[derive(cw_orch::ExecuteFns)] // Function generation
 /// Execute methods for counter
 pub enum ExecuteMsg {
     /// Increment count by one
@@ -25,6 +26,7 @@ pub enum ExecuteMsg {
 #[cw_serde]
 #[derive(QueryResponses)]
 /// Query methods for counter
+#[derive(cw_orch::QueryFns)] // Function generation
 pub enum QueryMsg {
     /// GetCount returns the current count as a json-encoded number
     #[returns(GetCountResponse)]
